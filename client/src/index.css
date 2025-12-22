@@ -5,34 +5,34 @@
 @tailwind utilities;
 
 :root {
-  /* Fresh, airy sky palette */
+  /* Islamic Weather - emerald and gold palette */
   --font-display: 'Outfit', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 
-  --background: 210 50% 98%;
-  --foreground: 222 47% 11%;
+  --background: 35 50% 96%;
+  --foreground: 228 30% 18%;
   
-  --primary: 199 89% 48%;
-  --primary-foreground: 210 40% 98%;
+  --primary: 140 70% 42%;
+  --primary-foreground: 35 50% 96%;
   
-  --secondary: 210 40% 96%;
-  --secondary-foreground: 222 47% 11%;
+  --secondary: 228 40% 92%;
+  --secondary-foreground: 228 30% 18%;
   
-  --muted: 210 40% 96%;
-  --muted-foreground: 215 16% 47%;
+  --muted: 35 40% 92%;
+  --muted-foreground: 35 20% 50%;
   
-  --accent: 38 92% 50%;
-  --accent-foreground: 222 47% 11%;
+  --accent: 40 89% 52%;
+  --accent-foreground: 228 30% 18%;
   
   --destructive: 0 84% 60%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive-foreground: 35 50% 96%;
   
-  --border: 214 32% 91%;
-  --input: 214 32% 91%;
-  --ring: 199 89% 48%;
+  --border: 140 40% 85%;
+  --input: 140 40% 90%;
+  --ring: 140 70% 42%;
   
   --card: 0 0% 100%;
-  --card-foreground: 222 47% 11%;
+  --card-foreground: 228 30% 18%;
   
   --radius: 1rem;
 }
@@ -58,8 +58,8 @@
     @apply bg-background text-foreground antialiased selection:bg-primary/20;
     font-family: var(--font-body);
     background-image: 
-      radial-gradient(at 0% 0%, hsla(199, 89%, 96%, 1) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, hsla(220, 100%, 96%, 1) 0px, transparent 50%);
+      radial-gradient(at 0% 0%, hsla(140, 70%, 92%, 1) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(40, 89%, 90%, 1) 0px, transparent 50%);
     background-attachment: fixed;
   }
 
@@ -71,7 +71,7 @@
 
 @layer utilities {
   .glass-panel {
-    @apply bg-white/70 backdrop-blur-md border border-white/50 shadow-xl shadow-sky-900/5;
+    @apply bg-white/70 backdrop-blur-md border border-white/50 shadow-xl shadow-emerald-900/5;
   }
   
   .glass-card {
@@ -79,7 +79,7 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-emerald-700;
   }
 }
 
