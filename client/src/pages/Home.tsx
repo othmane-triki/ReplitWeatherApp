@@ -47,7 +47,7 @@ export default function Home() {
       <header className="flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
           <h1 className="text-3xl font-display font-bold tracking-tight text-foreground">
-            Weather
+            ISLAM Weather
             <span className="text-primary">.</span>
           </h1>
           <p className="text-muted-foreground mt-1 text-sm">Real-time weather & forecast</p>
