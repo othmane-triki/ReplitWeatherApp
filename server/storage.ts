@@ -1,6 +1,4 @@
-import { db } from "./db";
 import { locations, type InsertLocation, type Location } from "@shared/schema";
-import { eq } from "drizzle-orm";
 
 export interface IStorage {
   getLocations(): Promise<Location[]>;
@@ -8,22 +6,29 @@ export interface IStorage {
   deleteLocation(id: number): Promise<void>;
 }
 
-export class DatabaseStorage implements IStorage {
+export class MemStorage implements IStorage {
+  private locations: Map<number, Location>;
+  private currentId: number;
+
+  constructor() {
+    this.locations = new Map();
+    this.currentId = 1;
+  }
+
   async getLocations(): Promise<Location[]> {
-    return await db.select().from(locations);
+    return Array.from(this.locations.values());
   }
 
   async createLocation(insertLocation: InsertLocation): Promise<Location> {
-    const [location] = await db
-      .insert(locations)
-      .values(insertLocation)
-      .returning();
+    const id = this.currentId++;
+    const location: Location = { ...insertLocation, id };
+    this.locations.set(id, location);
     return location;
   }
 
   async deleteLocation(id: number): Promise<void> {
-    await db.delete(locations).where(eq(locations.id, id));
+    this.locations.delete(id);
   }
 }
 
-export const storage = new DatabaseStorage();
+export const storage = new MemStorage();
